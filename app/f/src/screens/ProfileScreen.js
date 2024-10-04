@@ -80,11 +80,13 @@ const styles = StyleSheet.create({
     info: {
         fontSize: 16,
         color: '#ecf0f1',
+        alignItems:'center',
         marginBottom: 10,
     },
     loadingText: {
         color: '#ecf0f1',
         fontSize: 16,
+        alignItems:'center',
         textAlign: 'center',
         marginTop: 20,
     },

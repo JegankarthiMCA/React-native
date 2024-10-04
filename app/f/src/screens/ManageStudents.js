@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 28,
     fontWeight: 'bold',
+    alignItems:'center',
     marginBottom: 20,
   },
   doubtContainer: {

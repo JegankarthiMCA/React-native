@@ -36,7 +36,7 @@ export default function ManageVehicles({ navigation }) {
       );
 
       if (response.status === 200) {  // Check the response status
-        Alert.alert('Success', 'Vehicle added successfully');
+        Alert.alert('Success', 'Body Part added');
         navigation.navigate('AdminDashboard');
       } else {
         // Handle cases where the response is not 200 OK

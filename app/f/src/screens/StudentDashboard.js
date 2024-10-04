@@ -70,7 +70,7 @@ export default function StudentDashboard() {
       setRoutes(response.data); // Update state with routes for the selected vehicle
     } catch (error) {
       if (error.response) {
-        setError(error.response.data.message || 'Failed to load routes');
+        setError(error.response.data.message || 'Failed to load prescription');
       } else if (error.request) {
         setError('No response from the server');
       } else {
@@ -128,7 +128,7 @@ export default function StudentDashboard() {
         duration={3000}
       />
 
-      <Text style={styles.subtitle}>Select a Vehicle to View Routes</Text>
+      <Text style={styles.subtitle}>Select a Organs to View Prescription</Text>
 
       {/* List of vehicles */}
       <FlatList
@@ -144,7 +144,7 @@ export default function StudentDashboard() {
             </Text>
           </TouchableOpacity>
         )}
-        ListEmptyComponent={<Text style={styles.noVehiclesText}>No vehicles available</Text>}
+        ListEmptyComponent={<Text style={styles.noVehiclesText}>No Prescription available</Text>}
         contentContainerStyle={styles.vehicleList}
       />
 
@@ -163,7 +163,7 @@ export default function StudentDashboard() {
                 <Text style={styles.routeItem}>{item.routeName}</Text>
               </TouchableOpacity>
             )}
-            ListEmptyComponent={<Text style={styles.noRoutesText}>No routes available for this vehicle</Text>}
+            ListEmptyComponent={<Text style={styles.noRoutesText}>No Prescription available for this Organs</Text>}
             contentContainerStyle={styles.routeList}
           />
         
@@ -175,18 +175,18 @@ export default function StudentDashboard() {
           <View style={styles.modalContent}>
             {selectedRoute && (
               <>
-                <Text style={styles.modalHeader}>Route Details</Text>
+                <Text style={styles.modalHeader}>Organs Details</Text>
                 <ScrollView>
-                  <Text style={styles.modalText}>Route Name: {selectedRoute.routeName}</Text>
-                  <Text style={styles.modalText}>Vehicle Number: {selectedRoute.vehicle.vehicleNumber}</Text>
-                  <Text style={styles.modalText}>Capacity: {selectedRoute.vehicle.capacity}</Text>
+                  <Text style={styles.modalText}>Pain Type: {selectedRoute.routeName}</Text>
+                  <Text style={styles.modalText}>Pain Part: {selectedRoute.vehicle.vehicleNumber}</Text>
+                  <Text style={styles.modalText}>No. of Pain list: {selectedRoute.vehicle.capacity}</Text>
 
                   {/* List of stops */}
-                  <Text style={styles.modalSubheader}>Stops:</Text>
+                  <Text style={styles.modalSubheader}>Prescription:</Text>
                   {selectedRoute.stops.map((stop, index) => (
                     <View key={index} style={styles.modalStopContainer}>
-                      <Text style={styles.modalStopText}>Stop Name: {stop.stopName}</Text>
-                      <Text style={styles.modalStopText}>Timing: {stop.timing}</Text>
+                      <Text style={styles.modalStopText}>Instruction: {stop.stopName}</Text>
+                      <Text style={styles.modalStopText}>Tablet Count: {stop.timing}</Text>
                     </View>
                   ))}
                 </ScrollView>
@@ -201,12 +201,12 @@ export default function StudentDashboard() {
 
       {/* View Profile Button */}
       <TouchableOpacity style={styles.profileButton} onPress={handleViewProfile}>
-        <Text style={styles.profileButtonText}>View Profile</Text>
+        <Text style={styles.profileButtonText}>Profile</Text>
       </TouchableOpacity>
 
       {/* Doubt Button */}
       <TouchableOpacity style={styles.doubtButton} onPress={handleDoubt}>
-        <Text style={styles.doubtButtonText}>Doubt</Text>
+        <Text style={styles.doubtButtonText}>Doubt Portal</Text>
       </TouchableOpacity>
 
       {/* Logout Button */}
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#34495e',
   },
   header: {
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#ecf0f1',
     textAlign: 'center',
@@ -241,13 +241,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   vehicleList: {
-    paddingVertical: 10,
+    paddingVertical: 5,
   },
   vehicleButton: {
     backgroundColor: '#1abc9c',
-    borderRadius: 10,
-    padding: 15,
-    marginBottom: 10,
+    borderRadius: 35,
+    padding: 10,
+    marginBottom: 5,
     alignItems: 'center',
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 2 },
@@ -261,17 +261,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   routeList: {
-    paddingVertical: 10,
+    paddingVertical: 25,
   },
   routeItemContainer: {
     backgroundColor: '#2980b9',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 10,
+    borderRadius: 25,
+    padding: 15,
+    marginBottom: 15,
   },
   routeItem: {
     color: '#ffffff',
-    fontSize: 15,
+    fontSize: 10,
   },
   noVehiclesText: {
     color: '#e74c3c',
@@ -332,14 +332,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   logo: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
     marginBottom: 30,
     alignSelf: 'center',
   },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
+    marginBottom: 5,
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
@@ -368,7 +369,7 @@ const styles = StyleSheet.create({
   modalStopContainer: {
     backgroundColor: '#ecf0f1',
     borderRadius: 5,
-    padding: 10,
+    padding: 30,
     marginBottom: 5,
   },
   modalStopText: {
