@@ -55,7 +55,7 @@ router.get('/routes/vehicle/:vehicleId', authMiddleware, async (req, res) => {
     const routes = await Route.find({ vehicle: vehicleId }).populate('vehicle');
 
     if (!routes || routes.length === 0) {
-      return res.status(404).json({ message: 'No routes found for this vehicle ID' });
+      return res.status(404).json({ message: 'No Pain type found for this Organs' });
     }
 
     res.json(routes);
